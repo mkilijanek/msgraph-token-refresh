@@ -1,2 +1,1 @@
-msal
-requests
+pycurl==7.45.7
