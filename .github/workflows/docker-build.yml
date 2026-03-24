@@ -112,7 +112,7 @@ jobs:
 
       # --- Vulnerability scan (Trivy) -> SARIF ---
       - name: Trivy scan (SARIF)
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
           format: sarif
@@ -129,7 +129,7 @@ jobs:
       # Gating: blokuj PR na HIGH/CRITICAL (main/release nie blokuje)
       - name: Trivy scan (PR fail on HIGH/CRITICAL)
         if: github.event_name == 'pull_request'
-        uses: aquasecurity/trivy-action@0.24.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: ghcr.io/${{ github.repository }}:sha-${{ github.sha }}
           format: table
